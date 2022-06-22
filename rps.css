@@ -1,0 +1,85 @@
+
+header {
+    text-align: center;
+    font-size: 100px;
+    color:rgba(255, 255, 255, 0.546);
+}
+
+
+.rules {
+    text-align: center;
+    color:rgba(255, 255, 255, 0.546);
+    font-size: 45px;
+}
+
+
+body {
+    background-color: rgb(54, 47, 47); 
+}
+
+.userOption {
+    color:white;
+    text-align: center;
+    position: relative; top:30px;
+    font-size: 40px;
+    
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+.optionButton {
+    margin-top: 30px;
+    display:flex;
+    justify-content: center;
+     }
+button {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 30px 30px;
+    background-color: dimgrey;
+    color:white;
+}
+
+.Computer {
+    text-align: center;
+    color:white;
+    margin-top: 10px;
+    font-size: 40px;
+}
+
+.result {
+    text-align: center;
+    color:white;
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+.scoreLabel {
+    text-align: center;
+    color:white;
+    font-size: 40px;
+  
+}
+.scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color:white;
+    
+    
+}
+.scores div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 5px solid dimgrey;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    margin-right: 5px; 
+
+    font-size: 20px;    
+}
