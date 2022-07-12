@@ -1,10 +1,33 @@
 
+let playerPlay = '';
+let playerScore = 0;
+let computerScore = 0;
 
-let computerScore = 0
-let playerScore = 0
-let playerSelection
+function playerWinnerMessage() {
+    scoreMessage.textContent = "You win the game!!"
+    scoreInfo.textContent = ''
+}
+    
+function computerWinnerMessage() {
+    scoreMessage.textContent = "Computer beats you!!"
+    scoreInfo.textContent = ''
+}
+function endGame() {
+    endMessage.textContent = "Press Restart Button to play again"
+} 
+function isGameOver() {
+if(playerScore === 5){
+    playerWinnerMessage()
+    endGame();
+}
 
-const computerPlay = () => {
+if(computerScore === 5){
+    computerWinnerMessage()
+    endGame();
+}
+}
+
+function computerSelection()  {
     let number = Math.floor(Math.random() * 3)
 
    switch(number) {
@@ -17,60 +40,80 @@ const computerPlay = () => {
    }
 }
 
+function round(computerPlay, playerPlay) {
+    if(computerPlay === playerPlay){
+        roundWinner = 'tie'
+        scoreInfo.textContent = 'You both chose ' + playerPlay + ' it is a tie. Rethrow!'
 
-const round = (computerPlay,playerSelection) => {
-    if(computerPlay === playerSelection){
-        scoreInfo.textContent = 'You both chose' + playerSelection + 'it is a draw. Rethrow!'
     }
     else if(
-        (computerPlay === 'ROCK' && playerSelection === 'SCISSORS') ||
-        (computerPlay === 'PAPER' && playerSelection === 'ROCK') ||
-        (computerPlay === 'SCISSORS' && playerSelection === 'PAPER')){
+        (computerPlay === 'ROCK' && playerPlay === 'SCISSORS') ||
+        (computerPlay === 'PAPER' && playerPlay === 'ROCK') ||
+        (computerPlay === 'SCISSORS' && playerPlay === 'PAPER')){
+            roundWinner = 'Computer'
             computerScore++
             scoreInfo.textContent = 'Computer beats you! Try again.'}
-    else(
-        (computerPlay === 'PAPER' && playerSelection === 'SCISSORS') ||
-        (computerPlay === 'SCISSORS' && playerSelection === 'ROCK') ||
-        (computerPlay === 'ROCK' && playerSelection === 'PAPER'));{
-        playerScore++
-        scoreInfo.textContent = 'You win the round! Can you keep it up?'
-    }
-
-}
-
-const isGameOver =(playerScore,computerScore) => {
-    if(playerScore === 3){
-        scoreInfo.textContent = 'You Win!'
-    }
-    else if(computerScore === 3){
-        scoreInfo.textContent = 'You Lost'
+    else if(
+        (computerPlay === 'PAPER' && playerPlay === 'SCISSORS') ||
+        (computerPlay === 'SCISSORS' && playerPlay === 'ROCK') ||
+        (computerPlay === 'ROCK' && playerPlay === 'PAPER')){
+            roundWinner = 'Player'
+            playerScore++
+            scoreInfo.textContent = 'You win this round! Can you do it again?'
     }
 }
+ 
+const scoreInfo = document.getElementById('scoreInfo');
+const scoreMessage = document.getElementById('scoreMessage');
+const endMessage = document.getElementById('endMessage');
+const playerScorePara = document.getElementById('playerScore');
+const computerScorePara = document.getElementById('computerScore');
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorsBtn = document.getElementById('scissorsBtn');
+const restartBtn = document.getElementById('restartBtn');
 
-// UI
-
-const rockButton = document.getElementById('rockButton')
-const paperButton = document.getElementById('paperButton')
-const scissorsButton = document.getElementById('scissorsButton')
-const scoreInfo = document.getElementById('scoreInfo')
-const scoreMessage = document.getElementById('scoreMessage')
-
-
-window.onload=function() {
-    rockButton.addEventListener('click', () => handleClick('ROCK'))
-    paperButton.addEventListener('click', () => handleClick('PAPER'))
-    scissorsButton.addEventListener('click', () => handleClick('SCISSORS'))
+function updateScore() {
+    playerScorePara.textContent =`Player: ${playerScore}`
+    computerScorePara.textContent =`Computer: ${computerScore}`
 }
 
-function handleClick(playerSelection) {
-    if(isGameOver()){
-        isGameOver()
-    }
+rockBtn.addEventListener('click', playerRock);
+paperBtn.addEventListener('click', playerPaper);
+scissorsBtn.addEventListener('click', playerScissors);
+restartBtn.addEventListener('click', restartGame);
+
+
+function playerRock() {
+    playerPlay = 'ROCK'   
+    afterClick();
+} 
+    
+function playerPaper() {
+    playerPlay = 'PAPER'
+    afterClick();   
+}
+    
+function playerScissors() {
+    playerPlay = 'SCISSORS';
+    afterClick();   
+}
+    
+function afterClick() { 
+    computerSelection();
+    round(computerSelection(), playerPlay);
+    updateScore();
+    isGameOver();
 }
 
 
-round(playerSelection, computerPlay)
 
-let div = document.querySelector(".computerPlay")
-    div.innerText = computerPlay()
-
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+    scoreInfo.textContent = 'Computer is ready to go, are you?'
+    scoreMessage.textContent = ''
+    playerScorePara.textContent = 'Player: 0'
+    computerScorePara.textContent = 'Computer: 0'
+    endMessage.textContent = ''
+}

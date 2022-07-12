@@ -42,44 +42,40 @@ button {
     color:white;
 }
 
-.Computer {
-    text-align: center;
+.round {
     color:white;
-    margin-top: 10px;
-    font-size: 40px;
+    text-align: center;
+    font-size: 25px;
+}
+.scoreInfo {
+    padding: 20px;
 }
 
-.result {
+.score {
+    color:white;
     text-align: center;
-    color:white;
-    font-size: 40px;
-    margin-top: 100px;
-}
-
-.scoreLabel {
-    text-align: center;
-    color:white;
-    font-size: 40px;
-  
-}
-.scores {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color:white;
-    
+    font-size: 25px;
+    margin-top: 60px;
     
 }
-.scores div {
+.scoreParent {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    border: 5px solid dimgrey;
-    margin-top: 3px;
-    margin-bottom: 20px;
-    margin-right: 5px; 
-
-    font-size: 20px;    
+    margin-top: 30px;
+   
 }
+.playerScore {
+    padding-right: 50px;
+}
+.computerScore {
+    padding-left: 30px;
+}
+#scoreMessage {
+    font-size: 80px;
+}
+
+#endMessage {
+    padding: 30px;
+    font-size: 35px;
+}
+

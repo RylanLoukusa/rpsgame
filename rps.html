@@ -12,33 +12,31 @@
 </header>
 <body>
     <div class="rules">
-        Best of 3
+        First to 5
     </div>
     <div class="userOption">
         Choose your throw
     </div>
     <div class="optionButton">
-        <Button id="rockButton"> <img src="rock.jpeg"> <br> <br> Rock </Button>
-        <Button id="paperButton"> <img src="paper.jpeg"> <br> <br> Paper</Button>
-        <Button id="scissorsButton"> <img src="scissors.png"> <br>  <br> Scissors</Button>
+        <Button id="rockBtn"> <img src="rock.jpeg"> <br> <br> Rock </Button>
+        <Button id="paperBtn"> <img src="paper.jpeg"> <br> <br> Paper</Button>
+        <Button id="scissorsBtn"> <img src="scissors.png"> <br>  <br> Scissors</Button>
     </div>
 
-    <div class="Computer">
-        Computer Chose:
-        <div id="computerPlay"></div>
-        computerPlay
+    <div class="round">
+        <strong>Round</strong>
+        <div class="scoreInfo" id="scoreInfo"> Computer is ready to go, are you?</div>
+        <div class="scoreMessage" id="scoreMessage"> </div>
+        <div class="endMessage" id="endMessage"> </div>
     </div>
-    
-    <div class="result">
-        
-    </div>
-    <div class="scoreLabel">Scores</div>
-    <div class="scores" > 
-       <br> <div id="playerScore"> 1 </div>
-        <div id="computerScore"> 2</div>
-    </div>
-    <div id="scoreInfo"></div>
-    
+    <div class="score">
+        <strong>Score</strong>
+        <div class="scoreParent">
+            <div class="playerScore" id="playerScore"> Player: 0</div>
+            <div class="computerScore" id="computerScore"> Computer: 0</div>
+         </div>
+    </div>  
+    <button id="restartBtn" class="restartBtn"> Restart</button>
 </body>
 <script src="rps.js"> </script>
 </html>
